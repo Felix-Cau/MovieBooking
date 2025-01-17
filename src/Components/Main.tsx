@@ -18,7 +18,7 @@ function Main() {
             const moviesData = await getMovies();
             if (Array.isArray(moviesData) && moviesData.length > 0) {
                 setMovies(moviesData);
-                setSelectedMovie(moviesData[0]); // Select the first movie by default
+                setSelectedMovie(moviesData[0]);
             } else {
                 console.error("Failed to load movies or no movies available.");
             }
