@@ -22,7 +22,7 @@ function BookTickets(): JSX.Element {
 
   const totalPrice = selectedSeats.length * selectedMovie.price;
 
-  const handleBooking = async () => {
+  async function handleBooking() {
 
     //ADD FORMIK SOMEWHERE?
 
@@ -59,8 +59,7 @@ function BookTickets(): JSX.Element {
     
         const bookingStatus = await createBooking(bookingDetails);
         if (bookingStatus) {
-        //Insert fancy popup as userfeedback?
-        navigate("/"); // Redirect to home after successful booking
+        navigate("/");
         } else {
         console.log("Booking failed. Pleae try again.");
         return;
@@ -113,6 +112,7 @@ function BookTickets(): JSX.Element {
         <button className="confirm-button" onClick={handleBooking}>
           Confirm Booking
         </button>
+        <p>If the booking is successful you will be redirected to the start page.</p>
       </div>
     </div>
   );

@@ -1,9 +1,5 @@
 import { createContext } from 'react';
-
-interface PageContextType {
-    activePage: string;
-    setActivePage: (page: string) => void;
-}
+import { PageContextType } from '../ts/inferfaces';
 
 export const PageContext = createContext<PageContextType>({
     activePage: '',
