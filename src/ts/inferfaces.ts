@@ -5,6 +5,10 @@ interface Seat {
 
 type SeatingArray = Seat[][];
 
+interface SeatingDataProps {
+    seatingArray: SeatingArray;
+}
+
 interface Movie {
     movieId: string;
     title: string;
@@ -12,4 +16,10 @@ interface Movie {
     seatingData: SeatingArray;
 }
 
-export type { Seat, SeatingArray, Movie };
+interface MovieContainerProps {
+    movies: Movie[];
+    selectedMovie: string;
+    onMovieChange: (selectedMovieId: string) => void;
+}
+
+export type { Seat, SeatingArray, SeatingDataProps, Movie, MovieContainerProps };

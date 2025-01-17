@@ -2,7 +2,7 @@ import './style.css';
 import Header from './Components/Header';
 import Footer from './Components/Footer';
 import Main from './Components/Main';
-import Bookings from './Components/Bookings';
+import ManageBookings from './Components/ManageBookings';
 import Admin from './Components/Admin';
 
 
@@ -46,8 +46,8 @@ const routerDetails = createBrowserRouter([
         element: <Main />,
       },
       {
-        path: "/bookings",
-        element: <Bookings />,
+        path: "/managebookings",
+        element: <ManageBookings />,
       },
       {
         path: "/admin",

@@ -29,7 +29,7 @@ function Header() {
                 <HeaderMenuItem link="/" text="Home" />
               </div>
               <div className="href-style">
-                <HeaderMenuItem link="/bookings" text="Manage Bookings" />
+                <HeaderMenuItem link="/managebookings" text="Manage Bookings" />
               </div>
               <div className="href-style">
                 <HeaderMenuItem link="/admin" text="Admin" />
