@@ -10,7 +10,7 @@ interface SeatingDataProps {
 }
 
 interface Movie {
-    movieId: string;
+    id: string;
     title: string;
     price: number;
     seatingData: SeatingArray;
@@ -28,6 +28,7 @@ interface LocationState {
 }
 
 interface BookingDetails {
+    id?: string;
     movieId: string;
     movieTitle: string;
     seats: Seat[];

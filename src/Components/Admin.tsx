@@ -1,17 +1,17 @@
 import { useEffect, useState } from "react";
-import { Movie } from "../ts/inferfaces";
-import { getMovies, updateMovie } from "../Data/api";
+import { Movie } from "../ts/interfaces";
+import { getMovies, updateMovie, deleteMovie } from "../Data/api";
 
 function Admin(): JSX.Element {
     const [movies, setMovies] = useState<Movie[]>([]);
     const [showEdit, setShowEdit] = useState(false);
-    const [isSubmitFeedback, setSubmitFeedback] = useState<Boolean>(false);
+    // const [isSubmitFeedback, setSubmitFeedback] = useState<boolean>(false);
     const [currentMovie, setCurrentMovie] = useState<Movie | null>(null)
 
     useEffect(() => {
         const fetchMovies = async () => {
             try {
-                const moviesData: Movie[] = await getMovies();
+                const moviesData = await getMovies();
                 if (Array.isArray(moviesData)) {
                     setMovies(moviesData);
                 } else {
@@ -26,12 +26,21 @@ function Admin(): JSX.Element {
     }, []);
 
     function handlePressEdit(movieId: string) {
-        const movieToEdit = movies.find((movie) => movie.movieId === movieId);
+        const movieToEdit = movies.find((movie) => movie.id === movieId);
         if (movieToEdit) {
             setCurrentMovie(movieToEdit);
             setShowEdit(true);
         }
     };
+
+    async function handleDelete(movieId: string) {
+            const deleteStatus = await deleteMovie(movieId);
+            if (deleteStatus) {
+                setMovies((currentMovies) => currentMovies.filter((movie) => movie.id !== movieId));
+            } else {
+                console.log("Failed to delete movie.");
+            }
+        }
 
     function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
         if (currentMovie) {
@@ -46,7 +55,7 @@ function Admin(): JSX.Element {
             try {
                 const updateStatus = await updateMovie(currentMovie);
                 if (updateStatus) {
-                    setMovies((currentMovies) => currentMovies.map((movie) => movie.movieId === currentMovie.movieId ? currentMovie : movie));
+                    setMovies((currentMovies) => currentMovies.map((movie) => movie.id === currentMovie.id ? currentMovie : movie));
                     setShowEdit(false);
                     setCurrentMovie(null);
                 } else {
@@ -72,11 +81,12 @@ function Admin(): JSX.Element {
                     </thead>
                     <tbody>
                         {movies.map((movie: Movie) => (
-                            <tr key={movie.movieId}>
+                            <tr key={movie.id}>
                                 <td>{movie.title}</td>
                                 <td>{movie.price} SEK</td>
                                 <td>
-                                    <button onClick={() => handlePressEdit(movie.movieId)}>Edit</button>
+                                    <button onClick={() => handlePressEdit(movie.id)}>Edit</button>
+                                    <button onClick={() => handleDelete(movie.id)}>Delete</button>
                                 </td>
                             </tr>
                         ))}
@@ -86,7 +96,6 @@ function Admin(): JSX.Element {
             <div id='showEdit'>
                 {showEdit && currentMovie && (
                     <form onSubmit={handleUpdate}>
-                        <input type="hidden" name="movieId" value={currentMovie.movieId} />
                         <div>
                             <label htmlFor="title">Title:</label>
                             <input

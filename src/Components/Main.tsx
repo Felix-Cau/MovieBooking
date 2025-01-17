@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 import MovieContainer from "./MovieContainer";
 import SeatingData from "./SeatingData";
-import { Movie } from "../ts/inferfaces";
+import { Movie } from "../ts/interfaces";
 import { getMovies } from "../Data/api";
 
 function Main() {
     const [movies, setMovies] = useState<Movie[]>([]);
     const [selectedMovie, setSelectedMovie] = useState<Movie>({
-        movieId: "",
+        id: "",
         title: "",
         price: 0,
         seatingData: [],
@@ -28,7 +28,7 @@ function Main() {
     }, []);
 
     function handleMovieChange(movieId: string) {
-        const selected = movies.find((movie) => movie.movieId === movieId);
+        const selected = movies.find((movie) => movie.id === movieId);
         if (selected) {
             setSelectedMovie(selected);
         }
@@ -39,7 +39,7 @@ function Main() {
         <>
             <MovieContainer
                 movies={movies}
-                selectedMovie={selectedMovie.movieId}
+                selectedMovie={selectedMovie.id}
                 onMovieChange={handleMovieChange} />
             <ul className="showcase">
                 <li>

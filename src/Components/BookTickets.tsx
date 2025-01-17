@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { createBooking, updateMovie } from "../Data/api";
-import { Movie, LocationState } from "../ts/inferfaces";
+import { Movie, LocationState } from "../ts/interfaces";
 
 function BookTickets(): JSX.Element {
   const location = useLocation();
@@ -42,9 +42,9 @@ function BookTickets(): JSX.Element {
     };
 
     const bookingDetails = {
-      movieId: selectedMovie.movieId,
+      movieId: selectedMovie.id,
       movieTitle: selectedMovie.title,
-      seats: selectedSeats.map((seat) => ({ ...seat, status: "booked" })),
+      seats: selectedSeats,
       email,
       phone,
       totalPrice,

@@ -1,10 +1,11 @@
-import { SeatingDataProps } from '../ts/inferfaces';
+import { SeatingDataProps } from '../ts/interfaces';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 function SeatingData({ movie }: SeatingDataProps): JSX.Element {
     const [selectedSeats, setSelectedSeats] = useState<Set<string>>(new Set());
     const selectedMovie = movie;
+    const navigate = useNavigate();
 
     const selectedCount = selectedSeats.size;
     const totalPrice = selectedCount * selectedMovie.price;
@@ -21,8 +22,7 @@ function SeatingData({ movie }: SeatingDataProps): JSX.Element {
         });
     }
     
-    const handleBookTickets = () => {
-        const navigate = useNavigate();
+    function handleBookTickets() {
         navigate('/book-tickets', {
         state: {
             selectedSeats: Array.from(selectedSeats),
