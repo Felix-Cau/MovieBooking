@@ -1,27 +1,26 @@
 import { useEffect, useState } from "react";
 import MovieContainer from "./MovieContainer";
 import SeatingData from "./SeatingData";
-import { SeatingArray, Movie } from "../ts/inferfaces";
+import { Movie } from "../ts/inferfaces";
 import { getMovies } from "../Data/api";
 
 function Main() {
     const [movies, setMovies] = useState<Movie[]>([]);
-    const [selectedMovieId, setSelectedMovieId] = useState<string>('');
-    const [selectedSeatingData, setSelectedSeatingData] = useState<SeatingArray>([]);
+    const [selectedMovie, setSelectedMovie] = useState<Movie>({
+        movieId: "",
+        title: "",
+        price: 0,
+        seatingData: [],
+    });
 
     useEffect(() => {
         const fetchMovies = async () => {
             const moviesData = await getMovies();
-            if (Array.isArray(moviesData)) {
+            if (Array.isArray(moviesData) && moviesData.length > 0) {
                 setMovies(moviesData);
-
-                if (moviesData.length > 0) {
-                    setSelectedMovieId(moviesData[0].movieId);
-                    setSelectedSeatingData(moviesData[0].seatingData);
-                }
+                setSelectedMovie(moviesData[0]); // Select the first movie by default
             } else {
-                setSelectedSeatingData([]);
-                console.log("Failed to load movies:");
+                console.error("Failed to load movies or no movies available.");
             }
         };
 
@@ -29,16 +28,18 @@ function Main() {
     }, []);
 
     const handleMovieChange = (movieId: string) => {
-        setSelectedMovieId(movieId);
         const selected = movies.find((movie) => movie.movieId === movieId);
-        setSelectedSeatingData(selected?.seatingData || []);
+        if (selected) {
+            setSelectedMovie(selected);
+        }
     };
+
 
     return (
         <>
             <MovieContainer
                 movies={movies}
-                selectedMovie={selectedMovieId}
+                selectedMovie={selectedMovie.movieId}
                 onMovieChange={handleMovieChange} />
             <ul className="showcase">
                 <li>
@@ -56,13 +57,8 @@ function Main() {
             </ul>
             <div className="container">
                 <div className="screen"></div>
-                <SeatingData seatingArray={selectedSeatingData} />
+                <SeatingData movie={selectedMovie} />
             </div>
-            <p className="text">
-                You have selected <span id="count">0</span> seats for a price of $
-                <span id="total">0</span>
-            </p>
-            <script type="module" src="script.tsx"></script>
         </>
     );
 }

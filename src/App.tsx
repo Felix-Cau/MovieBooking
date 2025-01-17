@@ -45,10 +45,10 @@ const routerDetails = createBrowserRouter([
         path: "/",
         element: <Main />,
       },
-      {
-        path: "/managebookings",
-        element: <ManageBookings />,
-      },
+      // {
+      //   path: "/managebookings",
+      //   element: <ManageBookings />,
+      // },
       {
         path: "/admin",
         element: <Admin />,

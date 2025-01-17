@@ -6,7 +6,7 @@ interface Seat {
 type SeatingArray = Seat[][];
 
 interface SeatingDataProps {
-    seatingArray: SeatingArray;
+    movie: Movie;
 }
 
 interface Movie {
