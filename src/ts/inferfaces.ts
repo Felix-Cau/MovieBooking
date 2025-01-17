@@ -36,4 +36,9 @@ interface BookingDetails {
     totalPrice: number;
 }
 
-export type { Seat, SeatingArray, SeatingDataProps, Movie, MovieContainerProps, LocationState, BookingDetails };
+interface PageContextType {
+    activePage: string;
+    setActivePage: (page: string) => void;
+}
+
+export type { Seat, SeatingArray, SeatingDataProps, Movie, MovieContainerProps, LocationState, BookingDetails, PageContextType };

@@ -27,7 +27,7 @@ function Main() {
         fetchMovies();
     }, []);
 
-    const handleMovieChange = (movieId: string) => {
+    function handleMovieChange(movieId: string) {
         const selected = movies.find((movie) => movie.movieId === movieId);
         if (selected) {
             setSelectedMovie(selected);

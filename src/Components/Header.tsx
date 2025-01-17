@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import HeaderMenuItem from "./HeaderMenuItem";
 
-function Header() {
+function Header(): JSX.Element {
   return (
     <header>
       {/* Floating fixed navbar here */}
