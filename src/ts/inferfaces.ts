@@ -22,4 +22,18 @@ interface MovieContainerProps {
     onMovieChange: (selectedMovieId: string) => void;
 }
 
-export type { Seat, SeatingArray, SeatingDataProps, Movie, MovieContainerProps };
+interface LocationState {
+    selectedSeats: Seat[];
+    selectedMovie: Movie;
+}
+
+interface BookingDetails {
+    movieId: string;
+    movieTitle: string;
+    seats: Seat[];
+    email: string;
+    phone: string;
+    totalPrice: number;
+}
+
+export type { Seat, SeatingArray, SeatingDataProps, Movie, MovieContainerProps, LocationState, BookingDetails };

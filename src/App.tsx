@@ -4,6 +4,7 @@ import Footer from './Components/Footer';
 import Main from './Components/Main';
 import ManageBookings from './Components/ManageBookings';
 import Admin from './Components/Admin';
+import BookTickets from './Components/BookTickets';
 
 
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
@@ -45,10 +46,14 @@ const routerDetails = createBrowserRouter([
         path: "/",
         element: <Main />,
       },
-      // {
-      //   path: "/managebookings",
-      //   element: <ManageBookings />,
-      // },
+      {
+        path: "/managebookings",
+        element: <ManageBookings />,
+      },
+      {
+        path: '/book-tickets',
+        element: <BookTickets />
+      }
       {
         path: "/admin",
         element: <Admin />,

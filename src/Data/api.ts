@@ -1,16 +1,8 @@
 import axios from 'axios';
+import { BookingDetails, Movie } from '../ts/inferfaces';
 
 const URL: string = "http://localhost:3000";
 
-// function setReturnBooleanStatus(response) {
-//     if (response === 200) {
-//         const okStatus: boolean = true;
-//         return okStatus;
-//       } else {
-//         const okStatus: boolean = false;
-//         return okStatus;
-//       }
-// }
 
 async function getMovies() {
   const response = await axios.get(`${URL}/movies`);
@@ -22,7 +14,7 @@ async function getMovies() {
   }
 }
 
-async function createMovie(movie) {
+async function createMovie(movie: Movie) {
     const response = await axios.post(`${URL}/movies`, movie);
 
     if (response.status === 200) {
@@ -34,7 +26,7 @@ async function createMovie(movie) {
       }
 }
 
-async function updateMovie(movie) {
+async function updateMovie(movie: Movie) {
     const response = await axios.put(`${URL}/movies`, movie);
 
     if (response.status === 200) {
@@ -56,7 +48,7 @@ async function getSeatingData() {
     }
 }
 
-async function createBooking(booking) {
+async function createBooking(booking: BookingDetails) {
   const response = await axios.post(`${URL}/bookings`, booking);
 
   if (response.status === 200) {
