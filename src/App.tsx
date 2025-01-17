@@ -53,7 +53,7 @@ const routerDetails = createBrowserRouter([
       {
         path: '/book-tickets',
         element: <BookTickets />
-      }
+      },
       {
         path: "/admin",
         element: <Admin />,

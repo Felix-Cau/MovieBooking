@@ -21,7 +21,7 @@ function SeatingData({ movie }: SeatingDataProps): JSX.Element {
         });
     }
     
-    function handleBookTickets() {
+    const handleBookTickets = () => {
         const navigate = useNavigate();
         navigate('/book-tickets', {
         state: {
@@ -35,7 +35,7 @@ return (
     <div>
         <div className="container">
         <h2>{movie.title}</h2>
-        <p>Price per ticket: ${movie.price}</p>
+        <p>Price per ticket: {movie.price} SEK</p>
         {movie.seatingData.map((row, rowIndex) => (
             <div key={rowIndex} className="row">
             {row.map((seat) => (
@@ -55,8 +55,7 @@ return (
         ))}
         </div>
         <p className="text">
-        You have selected <span id="count">{selectedCount}</span> seat(s) for a price of $
-        <span id="total">{totalPrice}</span>.
+        You have selected <span id="count">{selectedCount}</span> seat(s) for a price of <span id="total">{totalPrice}</span> SEK.
         </p>
         <button onClick={handleBookTickets} className="book-button">
         Book Tickets
