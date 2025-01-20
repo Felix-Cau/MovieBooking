@@ -10,13 +10,13 @@ async function getMovies() {
   if (response.status === 200) {
     return response.data;
   } else {
-    return;
+    return [];
   }
 }
 
 async function createMovie(movie: Movie) {
-    const url = `${URL}/movies`;
-    const response = await axios.post<Movie>(url, movie);
+    const URI = `${URL}/movies`;
+    const response = await axios.post<Movie>(URI, movie);
 
     if (response.status === 201) {
         const okStatus: boolean = true;
@@ -28,8 +28,8 @@ async function createMovie(movie: Movie) {
 }
 
 async function updateMovie(movie: Movie) {
-    const url = `${URL}/movies/${movie.id}`
-    const response = await axios.put<Movie>(url, movie);
+    const URI = `${URL}/movies/${movie.id}`
+    const response = await axios.put<Movie>(URI, movie);
 
     if (response.status === 200) {
         const okStatus: boolean = true;
@@ -52,8 +52,8 @@ async function getSeatingData() {
 }
 
 async function createBooking(booking: BookingDetails) {
-  const url = `${URL}/bookings`;
-  const response = await axios.post<BookingDetails>(url, booking);
+  const URI = `${URL}/bookings`;
+  const response = await axios.post<BookingDetails>(URI, booking);
 
   if (response.status === 201) {
     const okStatus: boolean = true;
@@ -64,9 +64,19 @@ async function createBooking(booking: BookingDetails) {
   }
 }
 
-async function deleteMovie(movieId: string) {
-  const url = `${URL}/movies/${movieId}`;
-  const response = await axios.delete(url);
+async function getAllBookings() {
+  const response = await axios.get<BookingDetails[]>(`${URL}/bookings`);
+  
+  if (response.status === 200) {
+    return response.data;
+  } else {
+    return [];
+  }
+}
+
+async function deleteBooking(bookingId: string) {
+  const URI = `${URL}/bookings/${bookingId}`;
+  const response = await axios.delete(URI);
 
   if (response.status === 200) {
     const okStatus: boolean = true;
@@ -77,4 +87,17 @@ async function deleteMovie(movieId: string) {
   }
 }
 
-export { getMovies, createMovie, updateMovie, getSeatingData, createBooking, deleteMovie };
+async function deleteMovie(movieId: string) {
+  const URI = `${URL}/movies/${movieId}`;
+  const response = await axios.delete(URI);
+
+  if (response.status === 200) {
+    const okStatus: boolean = true;
+    return okStatus
+  } else {
+    const okStatus: boolean = false;
+    return okStatus;
+  }
+}
+
+export { getMovies, createMovie, updateMovie, getSeatingData, createBooking, deleteMovie, deleteBooking, getAllBookings };
