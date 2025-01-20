@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { createBooking, updateMovie } from "../Data/api";
-import { Movie, LocationState } from "../ts/interfaces";
+import { Movie, LocationState, SeatingArray } from "../ts/interfaces";
 
 function BookTickets(): JSX.Element {
   const location = useLocation();
@@ -25,21 +25,27 @@ function BookTickets(): JSX.Element {
   async function handleBooking() {
 
     //ADD FORMIK SOMEWHERE?
-
+    console.log(selectedSeats)
     // Update seat status for selected seats
-    const updatedSeatingData = selectedMovie.seatingData.map((row) =>
+    const updatedSeatingData: SeatingArray = selectedMovie.seatingData.map((row) =>
       row.map((seat) => {
-        if (selectedSeats.some((selectedSeat) => selectedSeat.id === seat.id)) {
-          return { ...seat, status: "booked" };
+        if (selectedSeats.some((selectedSeat) => String(selectedSeat.id) === String(seat.id))) {
+          seat.status = String("booked");
         }
         return seat;
       })
     );
 
+    console.log("Updated Seating Data:", updatedSeatingData);
+
+    console.log(updatedSeatingData);
+
     const updatedMovie: Movie = {
       ...selectedMovie,
       seatingData: updatedSeatingData,
     };
+
+    console.log(updatedMovie);
 
     const bookingDetails = {
       movieId: selectedMovie.id,
@@ -65,7 +71,7 @@ function BookTickets(): JSX.Element {
         return;
       }
     } catch (error) {
-      console.log('Everything went bonkers. Movie wasnt updated and booking didnt go through.')
+      console.error(error)
     }
   }
 

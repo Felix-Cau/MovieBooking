@@ -18,7 +18,7 @@ async function createMovie(movie: Movie) {
     const url = `${URL}/movies`;
     const response = await axios.post<Movie>(url, movie);
 
-    if (response.status === 200) {
+    if (response.status === 201) {
         const okStatus: boolean = true;
         return okStatus;
       } else {
@@ -55,7 +55,7 @@ async function createBooking(booking: BookingDetails) {
   const url = `${URL}/bookings`;
   const response = await axios.post<BookingDetails>(url, booking);
 
-  if (response.status === 200) {
+  if (response.status === 201) {
     const okStatus: boolean = true;
     return okStatus;
   } else {
