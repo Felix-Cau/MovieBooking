@@ -1,31 +1,30 @@
-import { SeatingDataProps } from '../ts/interfaces';
+import { SeatingDataProps, Seat } from '../ts/interfaces';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 function SeatingData({ movie }: SeatingDataProps): JSX.Element {
-    const [selectedSeats, setSelectedSeats] = useState<Set<string>>(new Set());
+    const [selectedSeats, setSelectedSeats] = useState<Seat[]>([]);
     const selectedMovie = movie;
     const navigate = useNavigate();
 
-    const selectedCount = selectedSeats.size;
+    const selectedCount = selectedSeats.length;
     const totalPrice = selectedCount * selectedMovie.price;
 
-    function changeSeatSelection(seatId: string) {
+    function changeSeatSelection(seat: Seat) {
         setSelectedSeats((prevSelectedSeats) => {
-            const updatedSeats = new Set(prevSelectedSeats);
-            if (updatedSeats.has(seatId)) {
-                updatedSeats.delete(seatId);
+            const isSeatSelected = prevSelectedSeats.some((s) => s.id === seat.id);
+            if (isSeatSelected) {
+                return prevSelectedSeats.filter((s) => s.id !== seat.id);
             } else {
-                updatedSeats.add(seatId);
+                return [...prevSelectedSeats, seat];
             }
-            return updatedSeats;
         });
     }
 
     function handleBookTickets() {
         navigate('/book-tickets', {
             state: {
-                selectedSeats: Array.from(selectedSeats),
+                selectedSeats,
                 selectedMovie,
             },
         });
@@ -42,11 +41,11 @@ function SeatingData({ movie }: SeatingDataProps): JSX.Element {
                             <div
                                 key={seat.id}
                                 className={`seat ${seat.status === 'booked' ? 'occupied' : ''
-                                    } ${selectedSeats.has(seat.id) ? 'selected' : ''}`}
+                                    } ${selectedSeats.some((s) => s.id === seat.id) ? 'selected' : ''}`}
                                 data-seat-id={seat.id}
                                 data-status={seat.status}
                                 onClick={() => {
-                                    if (seat.status !== 'booked') changeSeatSelection(seat.id);
+                                    if (seat.status !== 'booked') changeSeatSelection(seat);
                                 }}
                             ></div>
                         ))}
