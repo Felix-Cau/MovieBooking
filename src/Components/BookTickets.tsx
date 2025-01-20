@@ -25,7 +25,6 @@ function BookTickets(): JSX.Element {
   async function handleBooking() {
 
     //ADD FORMIK SOMEWHERE?
-    console.log(selectedSeats)
     // Update seat status for selected seats
     const updatedSeatingData: SeatingArray = selectedMovie.seatingData.map((row) =>
       row.map((seat) => {
@@ -36,17 +35,11 @@ function BookTickets(): JSX.Element {
       })
     );
 
-    console.log("Updated Seating Data:", updatedSeatingData);
-
-    console.log(updatedSeatingData);
-
     const updatedMovie: Movie = {
       ...selectedMovie,
       seatingData: updatedSeatingData,
     };
-
-    console.log(updatedMovie);
-
+    
     const bookingDetails = {
       movieId: selectedMovie.id,
       movieTitle: selectedMovie.title,
