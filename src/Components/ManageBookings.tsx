@@ -7,8 +7,8 @@ function ManageBookings() {
     const [allBookings, setAllBookings] = useState<BookingDetails[]>([]);
     const [email, setEmail] = useState('');
     const [filteredBookings, setFilteredBookings] = useState<BookingDetails[]>([]);
-    const [showBookings, setShowBookings] = useState(false);
-    const [noBookingsMessage, setNoBookingsMessage] = useState(false);
+    const [showBookings, setShowBookings] = useState<boolean>(false);
+    const [noBookingsMessage, setNoBookingsMessage] = useState<boolean>(false);
     const [allMovies, setAllMovies] = useState<Movie[]>([])
     const navigate = useNavigate();
 

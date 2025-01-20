@@ -11,7 +11,9 @@ function CreateMovie(): JSX.Element {
     const [price, setPrice] = useState<number>(0);
     const location = useLocation();
     const navigate = useNavigate();
-    const { amountOfMovies } = (location.state as LocationStateNewMovie) || {
+
+    const { amountOfMovies } = 
+        (location.state as LocationStateNewMovie) || {
         amountOfMovies: undefined,
     };
 

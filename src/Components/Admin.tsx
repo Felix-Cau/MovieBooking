@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 function Admin(): JSX.Element {
     const [movies, setMovies] = useState<Movie[]>([]);
-    const [showEdit, setShowEdit] = useState(false);
+    const [showEdit, setShowEdit] = useState<boolean>(false);
     const [currentMovie, setCurrentMovie] = useState<Movie | null>(null)
     const navigate = useNavigate();
 
