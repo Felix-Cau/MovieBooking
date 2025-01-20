@@ -15,6 +15,7 @@ function BookTickets(): JSX.Element {
 
   const [email, setEmail] = useState<string>("");
   const [phone, setPhone] = useState<string>("");
+  const [name, setName] = useState<string>('');
 
   if (!selectedMovie || !selectedSeats) {
     return <div>No booking information available.</div>;
@@ -41,6 +42,7 @@ function BookTickets(): JSX.Element {
       movieId: selectedMovie.id,
       movieTitle: selectedMovie.title,
       seats: selectedSeats,
+      name,
       email,
       phone,
       totalPrice,
@@ -79,6 +81,16 @@ function BookTickets(): JSX.Element {
       </p>
 
       <form className="booking-form">
+        <div>
+          <label htmlFor="name">Name:</label>
+          <input
+            type="text"
+            id="name"
+            value={name}
+            onChange={(event) => setName(event.target.value)}
+            required
+          />
+        </div>
         <div>
           <label htmlFor="email">Email Address:</label>
           <input
