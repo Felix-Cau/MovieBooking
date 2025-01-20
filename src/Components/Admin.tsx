@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
 import { Movie } from "../ts/interfaces";
 import { getMovies, updateMovie, deleteMovie } from "../Data/api";
+import { useNavigate } from "react-router-dom";
 
 function Admin(): JSX.Element {
     const [movies, setMovies] = useState<Movie[]>([]);
     const [showEdit, setShowEdit] = useState(false);
-    // const [isSubmitFeedback, setSubmitFeedback] = useState<boolean>(false);
     const [currentMovie, setCurrentMovie] = useState<Movie | null>(null)
+    const navigate = useNavigate();
 
     useEffect(() => {
         const fetchMovies = async () => {
@@ -21,9 +22,16 @@ function Admin(): JSX.Element {
                 console.error("Error fetching movies:", error);
             }
         };
-
         fetchMovies();
     }, []);
+
+    function handleNavigateToCreateMovie() {
+        navigate('/createmovie', {
+            state: {
+                amountOfMovies: Number(movies.length),
+            }
+        });
+    }
 
     function handlePressEdit(movieId: string) {
         const movieToEdit = movies.find((movie) => movie.id === movieId);
@@ -34,20 +42,23 @@ function Admin(): JSX.Element {
     };
 
     async function handleDelete(movieId: string) {
+        try {
             const deleteStatus = await deleteMovie(movieId);
             if (deleteStatus) {
                 setMovies((currentMovies) => currentMovies.filter((movie) => movie.id !== movieId));
             } else {
                 console.log("Failed to delete movie.");
             }
+        } catch (error) {
+            console.error("Error deleding movie:", error);
         }
+    }
 
-    function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
+    function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
         if (currentMovie) {
-          setCurrentMovie({ ...currentMovie, [e.target.name]: e.target.value });
+            setCurrentMovie({ ...currentMovie, [event.target.name]: event.target.value.trim() });
         }
-      };
-    
+    };
 
     async function handleUpdate(event: React.FormEvent) {
         event.preventDefault();
@@ -62,7 +73,7 @@ function Admin(): JSX.Element {
                     console.log('Admin couldnt update movie')
                 }
             } catch {
-                console.log('Movie update didnt work in admin.')
+                console.log('Movie update didnt work in admin page.')
             }
         }
     }
@@ -92,6 +103,7 @@ function Admin(): JSX.Element {
                         ))}
                     </tbody>
                 </table>
+                <button onClick={handleNavigateToCreateMovie}>Create new movie</button>
             </div>
             <div id='showEdit'>
                 {showEdit && currentMovie && (

@@ -5,6 +5,7 @@ import Main from './Components/Main';
 import ManageBookings from './Components/ManageBookings';
 import Admin from './Components/Admin';
 import BookTickets from './Components/BookTickets';
+import CreateMovie from './Components/CreateMovie';
 
 
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
@@ -19,8 +20,8 @@ function Layout() {
   useEffect(() => {
     const pathToPage: Record<string, string>= {
       '/': 'Home',
-      '/aboutme': 'About me',
-      '/aboutsite': 'About this site',
+      '/managebookings': 'Manage Bookings',
+      '/admin': 'Admin',
     };
 
     setActivePage(pathToPage[location.pathname] || 'Home');
@@ -45,6 +46,10 @@ const routerDetails = createBrowserRouter([
       {
         path: "/",
         element: <Main />,
+      },
+      {
+        path: '/createmovie',
+        element: <CreateMovie />,
       },
       {
         path: "/managebookings",

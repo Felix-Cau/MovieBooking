@@ -11,7 +11,7 @@ function MovieContainer({ movies, selectedMovie, onMovieChange }: MovieContainer
             <label htmlFor="movie">Pick a movie:</label>
             <select name="movie" id="movie" value={selectedMovie} onChange={handleChange}>
                 {movies.map((movie) => (
-                    <option key={movie.movieId} value={movie.movieId}>
+                    <option key={movie.id} value={movie.id}>
                         {movie.title} ({movie.price} kr)
                     </option>
                 ))}

@@ -27,6 +27,10 @@ interface LocationState {
     selectedMovie: Movie;
 }
 
+interface LocationStateNewMovie {
+    amountOfMovies: number;
+}
+
 interface BookingDetails {
     id?: string;
     movieId: string;
@@ -42,4 +46,4 @@ interface PageContextType {
     setActivePage: (page: string) => void;
 }
 
-export type { Seat, SeatingArray, SeatingDataProps, Movie, MovieContainerProps, LocationState, BookingDetails, PageContextType };
+export type { Seat, SeatingArray, SeatingDataProps, Movie, MovieContainerProps, LocationState, BookingDetails, PageContextType, LocationStateNewMovie };

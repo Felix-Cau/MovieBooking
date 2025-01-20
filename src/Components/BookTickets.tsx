@@ -50,24 +50,24 @@ function BookTickets(): JSX.Element {
       totalPrice,
     };
 
-    try{
-        const updateMovieStatus = await updateMovie(updatedMovie);
-        if (!updateMovieStatus) {
+    try {
+      const updateMovieStatus = await updateMovie(updatedMovie);
+      if (!updateMovieStatus) {
         console.log('Movie update failed from booking');
         return;
-        }
-    
-        const bookingStatus = await createBooking(bookingDetails);
-        if (bookingStatus) {
+      }
+
+      const bookingStatus = await createBooking(bookingDetails);
+      if (bookingStatus) {
         navigate("/");
-        } else {
+      } else {
         console.log("Booking failed. Pleae try again.");
         return;
-        }
+      }
     } catch (error) {
-        console.log('Everything went bonkers. Movie wasnt updated and booking didnt go through.')
+      console.log('Everything went bonkers. Movie wasnt updated and booking didnt go through.')
     }
-}
+  }
 
   return (
     <div className="booking-container">

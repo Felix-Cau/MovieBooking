@@ -15,15 +15,18 @@ function Main() {
 
     useEffect(() => {
         const fetchMovies = async () => {
-            const moviesData = await getMovies();
-            if (Array.isArray(moviesData) && moviesData.length > 0) {
-                setMovies(moviesData);
-                setSelectedMovie(moviesData[0]);
-            } else {
-                console.error("Failed to load movies or no movies available.");
+            try {
+                const moviesData = await getMovies();
+                if (Array.isArray(moviesData) && moviesData.length > 0) {
+                    setMovies(moviesData);
+                    setSelectedMovie(moviesData[0]);
+                } else {
+                    console.error("Failed to load movies or no movies available.");
+                }
+            } catch (error) {
+                console.error("Error fetching movies:", error);
             }
         };
-
         fetchMovies();
     }, []);
 
@@ -33,7 +36,6 @@ function Main() {
             setSelectedMovie(selected);
         }
     };
-
 
     return (
         <>
