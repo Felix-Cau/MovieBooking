@@ -36,6 +36,7 @@ interface BookingDetails {
     movieId: string;
     movieTitle: string;
     seats: Seat[];
+    name: string;
     email: string;
     phone: string;
     totalPrice: number;

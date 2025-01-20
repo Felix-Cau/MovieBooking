@@ -154,7 +154,8 @@ function ManageBookings() {
                     <table>
                         <thead>
                             <tr>
-                                <th>Title</th>
+                                <th>Name</th>
+                                <th>Movie Title</th>
                                 <th>Amount of seats</th>
                                 <th>Price</th>
                                 <th>Actions</th>
@@ -163,6 +164,7 @@ function ManageBookings() {
                         <tbody>
                             {filteredBookings.map((booking) => (
                                 <tr key={booking.id}>
+                                    <td>{booking.name}</td>
                                     <td>{booking.movieTitle}</td>
                                     <td>{booking.seats.length}</td>
                                     <td>{booking.totalPrice} SEK</td>
