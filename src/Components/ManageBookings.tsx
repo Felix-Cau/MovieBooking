@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { BookingDetails, Movie, SeatingArray } from "../ts/interfaces";
 import { getAllBookings, getMovies, deleteBooking, updateMovie } from "../Data/api";
 
@@ -9,6 +10,7 @@ function ManageBookings() {
     const [showBookings, setShowBookings] = useState(false);
     const [noBookingsMessage, setNoBookingsMessage] = useState(false);
     const [allMovies, setAllMovies] = useState<Movie[]>([])
+    const navigate = useNavigate();
 
     useEffect(() => {
         const fetchBookings = async () => {
@@ -171,6 +173,7 @@ function ManageBookings() {
                             ))}
                         </tbody>
                     </table>
+                    <button className="cancel-button" onClick={() => navigate("/")}>Cancel</button>
                 </div>
             )}
         </div>

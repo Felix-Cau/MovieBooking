@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 import { PageContext } from "../Data/PageContext";
 
 interface HeaderMenuItemProps {
-    link: string,
-    text: string
+  link: string,
+  text: string
 }
 
 function HeaderMenuItem({ link, text }: HeaderMenuItemProps) {
@@ -17,9 +17,7 @@ function HeaderMenuItem({ link, text }: HeaderMenuItemProps) {
   return (
     <>
       <Link
-        className={`nav-item nav-link headeranchor ${
-          activePage === text ? 'active' : ''
-        }`}
+        className={`nav-item nav-link headeranchor ${activePage === text ? 'active' : ''}`}
         to={link}
         onClick={onItemClicked}>
         {text}

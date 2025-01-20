@@ -23,9 +23,6 @@ function BookTickets(): JSX.Element {
   const totalPrice = selectedSeats.length * selectedMovie.price;
 
   async function handleBooking() {
-
-    //ADD FORMIK SOMEWHERE?
-    // Update seat status for selected seats
     const updatedSeatingData: SeatingArray = selectedMovie.seatingData.map((row) =>
       row.map((seat) => {
         if (selectedSeats.some((selectedSeat) => String(selectedSeat.id) === String(seat.id))) {
@@ -88,7 +85,7 @@ function BookTickets(): JSX.Element {
             type="email"
             id="email"
             value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            onChange={(event) => setEmail(event.target.value)}
             required
           />
         </div>
@@ -98,7 +95,7 @@ function BookTickets(): JSX.Element {
             type="tel"
             id="phone"
             value={phone}
-            onChange={(e) => setPhone(e.target.value)}
+            onChange={(event) => setPhone(event.target.value)}
             required
           />
         </div>
