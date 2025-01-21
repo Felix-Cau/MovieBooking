@@ -35,7 +35,6 @@ async function updateMovie(movie: Movie) {
         const okStatus: boolean = true;
         return okStatus;
       } else {
-        console.log(response.status);
         const okStatus: boolean = false;
         return okStatus;
       }

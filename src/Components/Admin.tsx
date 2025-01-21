@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
-import { Movie } from "../ts/interfaces";
+import { FormValuesAdmin, Movie } from "../ts/interfaces";
 import { getMovies, updateMovie, deleteMovie } from "../Data/api";
 import { useNavigate } from "react-router-dom";
+import { useFormik } from 'formik';
 
 function Admin(): JSX.Element {
     const [movies, setMovies] = useState<Movie[]>([]);
@@ -54,29 +55,47 @@ function Admin(): JSX.Element {
         }
     }
 
-    function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
-        if (currentMovie) {
-            setCurrentMovie({ ...currentMovie, [event.target.name]: event.target.value.trim() });
-        }
-    };
+    const formik = useFormik<FormValuesAdmin>({
+        initialValues: {
+            title: currentMovie?.title || '',
+            price: currentMovie?.price || 0,
+        },
+        enableReinitialize: true,
+        validate: (values) => {
+            const errors: { title?: string; price?: string } = {};
 
-    async function handleUpdate(event: React.FormEvent) {
-        event.preventDefault();
-        if (currentMovie) {
-            try {
-                const updateStatus = await updateMovie(currentMovie);
-                if (updateStatus) {
-                    setMovies((currentMovies) => currentMovies.map((movie) => movie.id === currentMovie.id ? currentMovie : movie));
-                    setShowEdit(false);
-                    setCurrentMovie(null);
-                } else {
-                    console.log('Admin couldnt update movie')
+            if (!values.title || values.title.trim().length < 3) {
+                errors.title = 'Title must be at least 3 characters long.';
+            }
+
+            if (!values.price || Number(values.price) <= 0) {
+                errors.price ='Price must be a positive number.';
+            }
+            return errors;
+        },
+        onSubmit: async (values) => {
+            if (currentMovie) {
+                const updatedMovie = { ...currentMovie, ...values };
+                try {
+                    const updateStatus = await updateMovie(updatedMovie);
+                    if (updateStatus) {
+                        try {
+                            const updatedMovies = await getMovies();
+                            setMovies(updatedMovies);
+                            setShowEdit(false);
+                            setCurrentMovie(null);
+                        } catch {
+                            console.log('Coulnd refetch movies after update.')
+                        }
+                    } else {
+                        console.log('Admin couldnt update movie')
+                    }
+                } catch {
+                    console.log('Movie update didnt work in admin page.')
                 }
-            } catch {
-                console.log('Movie update didnt work in admin page.')
             }
         }
-    }
+    })
 
     return (
         <>
@@ -107,17 +126,20 @@ function Admin(): JSX.Element {
             </div>
             <div id='showEdit'>
                 {showEdit && currentMovie && (
-                    <form onSubmit={handleUpdate}>
+                    <form onSubmit={formik.handleSubmit}>
                         <div>
                             <label htmlFor="title">Title:</label>
                             <input
                                 type="text"
                                 id="title"
                                 name="title"
-                                value={currentMovie.title}
-                                onChange={handleChange}
+                                value={formik.values.title}
+                                onChange={formik.handleChange}
                                 required
                             />
+                            {formik.touched.title && formik.errors.title ? (
+                                <div className='error'>{formik.errors.title}</div>
+                            ) : null}
                         </div>
                         <div>
                             <label htmlFor="price">Price:</label>
@@ -125,10 +147,13 @@ function Admin(): JSX.Element {
                                 type="number"
                                 id="price"
                                 name="price"
-                                value={currentMovie.price}
-                                onChange={handleChange}
+                                value={formik.values.price}
+                                onChange={formik.handleChange}
                                 required
                             />
+                            {formik.touched.price && formik.errors.price ? (
+                                <div className='error'>{formik.errors.price}</div>
+                            ) : null}
                         </div>
                         <button type="submit">Update</button>
                     </form>

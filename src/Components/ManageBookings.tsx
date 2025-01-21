@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { BookingDetails, Movie, SeatingArray } from "../ts/interfaces";
+import { BookingDetails, FormValuesManageBookings, Movie, SeatingArray } from "../ts/interfaces";
 import { getAllBookings, getMovies, deleteBooking, updateMovie } from "../Data/api";
+import { useFormik } from "formik";
 
 function ManageBookings() {
     const [allBookings, setAllBookings] = useState<BookingDetails[]>([]);
-    const [email, setEmail] = useState('');
     const [filteredBookings, setFilteredBookings] = useState<BookingDetails[]>([]);
     const [showBookings, setShowBookings] = useState<boolean>(false);
     const [noBookingsMessage, setNoBookingsMessage] = useState<boolean>(false);
@@ -111,41 +111,57 @@ function ManageBookings() {
         }
     }
 
-    function handleShowBookings() {
-        if (!email.trim()) {
-            setNoBookingsMessage(true);
-            setShowBookings(false);
-            return;
-        }
-        const filtered = allBookings.filter((booking) => booking.email.toLowerCase() === email.toLocaleLowerCase());
+    const formik = useFormik<FormValuesManageBookings>({
+        initialValues: {
+            email: '',
+        },
+        enableReinitialize: true,
+        validate: (values) => {
+            const errors: { email?: string;} = {};
 
-        if (filtered.length > 0) {
-            setFilteredBookings(filtered);
-            setShowBookings(true);
-            setNoBookingsMessage(false);
-        } else {
-            setFilteredBookings([]);
-            setShowBookings(false);
-            setNoBookingsMessage(true);
+            if (!values.email) {
+                errors.email = 'Email is required';
+            } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)) {
+                errors.email = 'Not a valid email';
+            }
+            return errors;
+        },
+        onSubmit: (values) => {
+            const filtered = allBookings.filter((booking) => booking.email.toLowerCase() === values.email.toLocaleLowerCase());
+    
+            if (filtered.length > 0) {
+                setFilteredBookings(filtered);
+                setShowBookings(true);
+                setNoBookingsMessage(false);
+            } else {
+                setFilteredBookings([]);
+                setShowBookings(false);
+                setNoBookingsMessage(true);
+            }
         }
-    }
+    })
 
     return (
         <div>
             {!showBookings && (
                 <div className="admin-container">
                     <h2>Enter your e-mail to get the bookings</h2>
+                    <form onSubmit={formik.handleSubmit}>
                     <input
-                        type="email"
-                        placeholder="Enter your email"
-                        value={email}
-                        onChange={(event) => setEmail(event.target.value.trim())}
+                        type="string"
+                        name='email'
+                        value={formik.values.email}
+                        onChange={formik.handleChange}
                         className="email-input"
                     />
-                    <button onClick={handleShowBookings}>Show bookings</button>
+                    {formik.touched.email && formik.errors.email ? (
+                        <div className='error'>{formik.errors.email}</div>
+                    ) : null}
+                    <button type='submit'>Show bookings</button>
                     {noBookingsMessage && (
                         <p>No bookings found for that e-mail, please try agian.</p>
                     )}
+                    </form>
                 </div>
             )}
             {showBookings && (
