@@ -9,8 +9,8 @@ function CreateMovie(): JSX.Element {
     const location = useLocation();
     const navigate = useNavigate();
 
-    const { amountOfMovies } = (location.state as LocationStateNewMovie) || {
-        amountOfMovies: undefined,
+    const generateGUID = (): string => {
+        return crypto.randomUUID();
     };
 
     useEffect(() => {
@@ -28,27 +28,6 @@ function CreateMovie(): JSX.Element {
         };
         fetchSeatingData();
     }, []);
-
-    // const createNewMovie = (): Movie => {
-    //     return {
-            
-    //     };
-    // };
-
-    // async function handleSubmit(event: React.FormEvent) {
-    //     event.preventDefault();
-    //     const newMovie = createNewMovie();
-
-    //     try {
-    //         const response = await createMovie(newMovie);
-
-    //         if (response) {
-    //             navigate("/admin");
-    //         }
-    //     } catch (error) {
-    //         console.error(error);
-    //     }
-    // }
 
     const formik = useFormik<FormValuesCreateMovie>({
         initialValues: {
@@ -70,7 +49,7 @@ function CreateMovie(): JSX.Element {
         },
         onSubmit: async (values) => {
             const newMovie: Movie = {
-                id: `${amountOfMovies + 1}`,
+                id: generateGUID(),
                 ...values,
                 seatingData: seatingDataNewMovie,
             };

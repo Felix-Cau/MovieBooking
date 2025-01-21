@@ -7,6 +7,10 @@ function BookTickets(): JSX.Element {
   const location = useLocation();
   const navigate = useNavigate();
 
+  const generateGUID = (): string => {
+    return crypto.randomUUID();
+  };
+
   const { selectedSeats, selectedMovie } =
     (location.state as LocationState) || {
       selectedSeats: [],
@@ -65,6 +69,7 @@ function BookTickets(): JSX.Element {
       };
 
       const bookingDetails = {
+        id: generateGUID(),
         movieId: selectedMovie.id,
         movieTitle: selectedMovie.title,
         seats: selectedSeats,

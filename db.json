@@ -1,9 +1,9 @@
 {
   "movies": [
     {
-      "id": "1",
-      "title": "Fast and Furious 6",
-      "price": "100",
+      "id": "3c12c993-ce60-4953-9906-62186b5ae671",
+      "title": "The Matrix",
+      "price": 100,
       "seatingData": [
         [
           {
@@ -122,11 +122,11 @@
           },
           {
             "id": "d4",
-            "status": "available"
+            "status": "booked"
           },
           {
             "id": "d5",
-            "status": "available"
+            "status": "booked"
           },
           {
             "id": "d6",
@@ -212,640 +212,7 @@
       ]
     },
     {
-      "id": "2",
-      "title": "The Mummy Returns",
-      "price": 50,
-      "seatingData": [
-        [
-          {
-            "id": "a1",
-            "status": "available"
-          },
-          {
-            "id": "a2",
-            "status": "available"
-          },
-          {
-            "id": "a3",
-            "status": "available"
-          },
-          {
-            "id": "a4",
-            "status": "available"
-          },
-          {
-            "id": "a5",
-            "status": "available"
-          },
-          {
-            "id": "a6",
-            "status": "available"
-          },
-          {
-            "id": "a7",
-            "status": "available"
-          },
-          {
-            "id": "a8",
-            "status": "available"
-          }
-        ],
-        [
-          {
-            "id": "b1",
-            "status": "available"
-          },
-          {
-            "id": "b2",
-            "status": "available"
-          },
-          {
-            "id": "b3",
-            "status": "available"
-          },
-          {
-            "id": "b4",
-            "status": "available"
-          },
-          {
-            "id": "b5",
-            "status": "available"
-          },
-          {
-            "id": "b6",
-            "status": "available"
-          },
-          {
-            "id": "b7",
-            "status": "available"
-          },
-          {
-            "id": "b8",
-            "status": "available"
-          }
-        ],
-        [
-          {
-            "id": "c1",
-            "status": "available"
-          },
-          {
-            "id": "c2",
-            "status": "available"
-          },
-          {
-            "id": "c3",
-            "status": "available"
-          },
-          {
-            "id": "c4",
-            "status": "available"
-          },
-          {
-            "id": "c5",
-            "status": "available"
-          },
-          {
-            "id": "c6",
-            "status": "available"
-          },
-          {
-            "id": "c7",
-            "status": "available"
-          },
-          {
-            "id": "c8",
-            "status": "available"
-          }
-        ],
-        [
-          {
-            "id": "d1",
-            "status": "available"
-          },
-          {
-            "id": "d2",
-            "status": "available"
-          },
-          {
-            "id": "d3",
-            "status": "available"
-          },
-          {
-            "id": "d4",
-            "status": "available"
-          },
-          {
-            "id": "d5",
-            "status": "available"
-          },
-          {
-            "id": "d6",
-            "status": "available"
-          },
-          {
-            "id": "d7",
-            "status": "available"
-          },
-          {
-            "id": "d8",
-            "status": "available"
-          }
-        ],
-        [
-          {
-            "id": "e1",
-            "status": "available"
-          },
-          {
-            "id": "e2",
-            "status": "available"
-          },
-          {
-            "id": "e3",
-            "status": "available"
-          },
-          {
-            "id": "e4",
-            "status": "available"
-          },
-          {
-            "id": "e5",
-            "status": "available"
-          },
-          {
-            "id": "e6",
-            "status": "available"
-          },
-          {
-            "id": "e7",
-            "status": "available"
-          },
-          {
-            "id": "e8",
-            "status": "available"
-          }
-        ],
-        [
-          {
-            "id": "f1",
-            "status": "available"
-          },
-          {
-            "id": "f2",
-            "status": "available"
-          },
-          {
-            "id": "f3",
-            "status": "available"
-          },
-          {
-            "id": "f4",
-            "status": "available"
-          },
-          {
-            "id": "f5",
-            "status": "available"
-          },
-          {
-            "id": "f6",
-            "status": "available"
-          },
-          {
-            "id": "f7",
-            "status": "available"
-          },
-          {
-            "id": "f8",
-            "status": "available"
-          }
-        ]
-      ]
-    },
-    {
-      "id": "3",
-      "title": "Jumanji: Welcome to the Jungle",
-      "price": 70,
-      "seatingData": [
-        [
-          {
-            "id": "a1",
-            "status": "available"
-          },
-          {
-            "id": "a2",
-            "status": "available"
-          },
-          {
-            "id": "a3",
-            "status": "available"
-          },
-          {
-            "id": "a4",
-            "status": "available"
-          },
-          {
-            "id": "a5",
-            "status": "available"
-          },
-          {
-            "id": "a6",
-            "status": "available"
-          },
-          {
-            "id": "a7",
-            "status": "available"
-          },
-          {
-            "id": "a8",
-            "status": "available"
-          }
-        ],
-        [
-          {
-            "id": "b1",
-            "status": "available"
-          },
-          {
-            "id": "b2",
-            "status": "available"
-          },
-          {
-            "id": "b3",
-            "status": "available"
-          },
-          {
-            "id": "b4",
-            "status": "available"
-          },
-          {
-            "id": "b5",
-            "status": "available"
-          },
-          {
-            "id": "b6",
-            "status": "available"
-          },
-          {
-            "id": "b7",
-            "status": "available"
-          },
-          {
-            "id": "b8",
-            "status": "available"
-          }
-        ],
-        [
-          {
-            "id": "c1",
-            "status": "available"
-          },
-          {
-            "id": "c2",
-            "status": "available"
-          },
-          {
-            "id": "c3",
-            "status": "available"
-          },
-          {
-            "id": "c4",
-            "status": "available"
-          },
-          {
-            "id": "c5",
-            "status": "available"
-          },
-          {
-            "id": "c6",
-            "status": "available"
-          },
-          {
-            "id": "c7",
-            "status": "available"
-          },
-          {
-            "id": "c8",
-            "status": "available"
-          }
-        ],
-        [
-          {
-            "id": "d1",
-            "status": "available"
-          },
-          {
-            "id": "d2",
-            "status": "available"
-          },
-          {
-            "id": "d3",
-            "status": "available"
-          },
-          {
-            "id": "d4",
-            "status": "available"
-          },
-          {
-            "id": "d5",
-            "status": "available"
-          },
-          {
-            "id": "d6",
-            "status": "available"
-          },
-          {
-            "id": "d7",
-            "status": "available"
-          },
-          {
-            "id": "d8",
-            "status": "available"
-          }
-        ],
-        [
-          {
-            "id": "e1",
-            "status": "available"
-          },
-          {
-            "id": "e2",
-            "status": "available"
-          },
-          {
-            "id": "e3",
-            "status": "available"
-          },
-          {
-            "id": "e4",
-            "status": "available"
-          },
-          {
-            "id": "e5",
-            "status": "available"
-          },
-          {
-            "id": "e6",
-            "status": "available"
-          },
-          {
-            "id": "e7",
-            "status": "available"
-          },
-          {
-            "id": "e8",
-            "status": "available"
-          }
-        ],
-        [
-          {
-            "id": "f1",
-            "status": "available"
-          },
-          {
-            "id": "f2",
-            "status": "available"
-          },
-          {
-            "id": "f3",
-            "status": "available"
-          },
-          {
-            "id": "f4",
-            "status": "available"
-          },
-          {
-            "id": "f5",
-            "status": "available"
-          },
-          {
-            "id": "f6",
-            "status": "available"
-          },
-          {
-            "id": "f7",
-            "status": "available"
-          },
-          {
-            "id": "f8",
-            "status": "available"
-          }
-        ]
-      ]
-    },
-    {
-      "id": "4",
-      "title": "Rampage",
-      "price": 40,
-      "seatingData": [
-        [
-          {
-            "id": "a1",
-            "status": "available"
-          },
-          {
-            "id": "a2",
-            "status": "available"
-          },
-          {
-            "id": "a3",
-            "status": "available"
-          },
-          {
-            "id": "a4",
-            "status": "available"
-          },
-          {
-            "id": "a5",
-            "status": "available"
-          },
-          {
-            "id": "a6",
-            "status": "available"
-          },
-          {
-            "id": "a7",
-            "status": "available"
-          },
-          {
-            "id": "a8",
-            "status": "available"
-          }
-        ],
-        [
-          {
-            "id": "b1",
-            "status": "available"
-          },
-          {
-            "id": "b2",
-            "status": "available"
-          },
-          {
-            "id": "b3",
-            "status": "available"
-          },
-          {
-            "id": "b4",
-            "status": "available"
-          },
-          {
-            "id": "b5",
-            "status": "available"
-          },
-          {
-            "id": "b6",
-            "status": "available"
-          },
-          {
-            "id": "b7",
-            "status": "available"
-          },
-          {
-            "id": "b8",
-            "status": "available"
-          }
-        ],
-        [
-          {
-            "id": "c1",
-            "status": "available"
-          },
-          {
-            "id": "c2",
-            "status": "available"
-          },
-          {
-            "id": "c3",
-            "status": "available"
-          },
-          {
-            "id": "c4",
-            "status": "available"
-          },
-          {
-            "id": "c5",
-            "status": "available"
-          },
-          {
-            "id": "c6",
-            "status": "available"
-          },
-          {
-            "id": "c7",
-            "status": "available"
-          },
-          {
-            "id": "c8",
-            "status": "available"
-          }
-        ],
-        [
-          {
-            "id": "d1",
-            "status": "available"
-          },
-          {
-            "id": "d2",
-            "status": "available"
-          },
-          {
-            "id": "d3",
-            "status": "available"
-          },
-          {
-            "id": "d4",
-            "status": "available"
-          },
-          {
-            "id": "d5",
-            "status": "available"
-          },
-          {
-            "id": "d6",
-            "status": "available"
-          },
-          {
-            "id": "d7",
-            "status": "available"
-          },
-          {
-            "id": "d8",
-            "status": "available"
-          }
-        ],
-        [
-          {
-            "id": "e1",
-            "status": "available"
-          },
-          {
-            "id": "e2",
-            "status": "available"
-          },
-          {
-            "id": "e3",
-            "status": "available"
-          },
-          {
-            "id": "e4",
-            "status": "available"
-          },
-          {
-            "id": "e5",
-            "status": "available"
-          },
-          {
-            "id": "e6",
-            "status": "available"
-          },
-          {
-            "id": "e7",
-            "status": "available"
-          },
-          {
-            "id": "e8",
-            "status": "available"
-          }
-        ],
-        [
-          {
-            "id": "f1",
-            "status": "available"
-          },
-          {
-            "id": "f2",
-            "status": "available"
-          },
-          {
-            "id": "f3",
-            "status": "available"
-          },
-          {
-            "id": "f4",
-            "status": "available"
-          },
-          {
-            "id": "f5",
-            "status": "available"
-          },
-          {
-            "id": "f6",
-            "status": "available"
-          },
-          {
-            "id": "f7",
-            "status": "available"
-          },
-          {
-            "id": "f8",
-            "status": "available"
-          }
-        ]
-      ]
-    },
-    {
-      "id": "5",
+      "id": "ebe8eb76-65f8-4c87-839e-864a6d831781",
       "title": "Doom",
       "price": 50,
       "seatingData": [
@@ -928,19 +295,19 @@
           },
           {
             "id": "c3",
-            "status": "available"
+            "status": "booked"
           },
           {
             "id": "c4",
-            "status": "available"
+            "status": "booked"
           },
           {
             "id": "c5",
-            "status": "available"
+            "status": "booked"
           },
           {
             "id": "c6",
-            "status": "available"
+            "status": "booked"
           },
           {
             "id": "c7",
@@ -1056,7 +423,7 @@
       ]
     },
     {
-      "id": "6",
+      "id": "fe258a8c-90c0-414a-9051-2b2fc24de8b9",
       "title": "Lord of the Rings",
       "price": 150,
       "seatingData": [
@@ -1257,17 +624,17 @@
           },
           {
             "id": "f7",
-            "status": "available"
+            "status": "booked"
           },
           {
             "id": "f8",
-            "status": "available"
+            "status": "booked"
           }
         ]
       ]
     },
     {
-      "id": "7",
+      "id": "b1644b50-97b2-481a-905c-428da3a74bbe",
       "title": "Up",
       "price": 95,
       "seatingData": [
@@ -1303,6 +670,217 @@
           {
             "id": "a8",
             "status": "available"
+          }
+        ],
+        [
+          {
+            "id": "b1",
+            "status": "available"
+          },
+          {
+            "id": "b2",
+            "status": "available"
+          },
+          {
+            "id": "b3",
+            "status": "available"
+          },
+          {
+            "id": "b4",
+            "status": "available"
+          },
+          {
+            "id": "b5",
+            "status": "available"
+          },
+          {
+            "id": "b6",
+            "status": "available"
+          },
+          {
+            "id": "b7",
+            "status": "available"
+          },
+          {
+            "id": "b8",
+            "status": "available"
+          }
+        ],
+        [
+          {
+            "id": "c1",
+            "status": "available"
+          },
+          {
+            "id": "c2",
+            "status": "available"
+          },
+          {
+            "id": "c3",
+            "status": "available"
+          },
+          {
+            "id": "c4",
+            "status": "available"
+          },
+          {
+            "id": "c5",
+            "status": "available"
+          },
+          {
+            "id": "c6",
+            "status": "available"
+          },
+          {
+            "id": "c7",
+            "status": "available"
+          },
+          {
+            "id": "c8",
+            "status": "available"
+          }
+        ],
+        [
+          {
+            "id": "d1",
+            "status": "available"
+          },
+          {
+            "id": "d2",
+            "status": "available"
+          },
+          {
+            "id": "d3",
+            "status": "available"
+          },
+          {
+            "id": "d4",
+            "status": "available"
+          },
+          {
+            "id": "d5",
+            "status": "available"
+          },
+          {
+            "id": "d6",
+            "status": "available"
+          },
+          {
+            "id": "d7",
+            "status": "available"
+          },
+          {
+            "id": "d8",
+            "status": "available"
+          }
+        ],
+        [
+          {
+            "id": "e1",
+            "status": "available"
+          },
+          {
+            "id": "e2",
+            "status": "available"
+          },
+          {
+            "id": "e3",
+            "status": "available"
+          },
+          {
+            "id": "e4",
+            "status": "available"
+          },
+          {
+            "id": "e5",
+            "status": "available"
+          },
+          {
+            "id": "e6",
+            "status": "available"
+          },
+          {
+            "id": "e7",
+            "status": "available"
+          },
+          {
+            "id": "e8",
+            "status": "available"
+          }
+        ],
+        [
+          {
+            "id": "f1",
+            "status": "booked"
+          },
+          {
+            "id": "f2",
+            "status": "booked"
+          },
+          {
+            "id": "f3",
+            "status": "available"
+          },
+          {
+            "id": "f4",
+            "status": "available"
+          },
+          {
+            "id": "f5",
+            "status": "available"
+          },
+          {
+            "id": "f6",
+            "status": "available"
+          },
+          {
+            "id": "f7",
+            "status": "available"
+          },
+          {
+            "id": "f8",
+            "status": "available"
+          }
+        ]
+      ]
+    },
+    {
+      "id": "3f49b042-5fab-4ddd-858d-d7bc1fc79693",
+      "title": "Jumanji: Welcome to the Jungle",
+      "price": 70,
+      "seatingData": [
+        [
+          {
+            "id": "a1",
+            "status": "booked"
+          },
+          {
+            "id": "a2",
+            "status": "booked"
+          },
+          {
+            "id": "a3",
+            "status": "booked"
+          },
+          {
+            "id": "a4",
+            "status": "booked"
+          },
+          {
+            "id": "a5",
+            "status": "booked"
+          },
+          {
+            "id": "a6",
+            "status": "booked"
+          },
+          {
+            "id": "a7",
+            "status": "booked"
+          },
+          {
+            "id": "a8",
+            "status": "booked"
           }
         ],
         [
@@ -1684,5 +1262,133 @@
       }
     ]
   ],
-  "bookings": []
+  "bookings": [
+    {
+      "id": "0643b938-b27b-463b-aad3-df6a6bea7f94",
+      "movieId": "3c12c993-ce60-4953-9906-62186b5ae671",
+      "movieTitle": "The Matrix",
+      "seats": [
+        {
+          "id": "d4",
+          "status": "booked"
+        },
+        {
+          "id": "d5",
+          "status": "booked"
+        }
+      ],
+      "name": "Stefan",
+      "email": "stefan@test.se",
+      "phone": "123456",
+      "totalPrice": 200
+    },
+    {
+      "id": "4562b682-478b-43c3-b347-70e6a64ebd94",
+      "movieId": "ebe8eb76-65f8-4c87-839e-864a6d831781",
+      "movieTitle": "Doom",
+      "seats": [
+        {
+          "id": "c3",
+          "status": "booked"
+        },
+        {
+          "id": "c4",
+          "status": "booked"
+        },
+        {
+          "id": "c5",
+          "status": "booked"
+        },
+        {
+          "id": "c6",
+          "status": "booked"
+        }
+      ],
+      "name": "Felix",
+      "email": "felix@felix.se",
+      "phone": "123456",
+      "totalPrice": 200
+    },
+    {
+      "id": "ef556b46-651f-490f-953c-7db343e8e65a",
+      "movieId": "fe258a8c-90c0-414a-9051-2b2fc24de8b9",
+      "movieTitle": "Lord of the Rings",
+      "seats": [
+        {
+          "id": "f7",
+          "status": "booked"
+        },
+        {
+          "id": "f8",
+          "status": "booked"
+        }
+      ],
+      "name": "Lisa",
+      "email": "lisa@svensson.se",
+      "phone": "123456",
+      "totalPrice": 300
+    },
+    {
+      "id": "e2303616-8679-436a-bbad-871723417ad4",
+      "movieId": "b1644b50-97b2-481a-905c-428da3a74bbe",
+      "movieTitle": "Up",
+      "seats": [
+        {
+          "id": "f1",
+          "status": "booked"
+        },
+        {
+          "id": "f2",
+          "status": "booked"
+        }
+      ],
+      "name": "Kristian",
+      "email": "kristian@lund.se",
+      "phone": "123456",
+      "totalPrice": 190
+    },
+    {
+      "id": "55493c17-b584-4a86-a3da-e41f8f2ba747",
+      "movieId": "3f49b042-5fab-4ddd-858d-d7bc1fc79693",
+      "movieTitle": "Jumanji: Welcome to the Jungle",
+      "seats": [
+        {
+          "id": "a1",
+          "status": "booked"
+        },
+        {
+          "id": "a2",
+          "status": "booked"
+        },
+        {
+          "id": "a3",
+          "status": "booked"
+        },
+        {
+          "id": "a4",
+          "status": "booked"
+        },
+        {
+          "id": "a5",
+          "status": "booked"
+        },
+        {
+          "id": "a6",
+          "status": "booked"
+        },
+        {
+          "id": "a7",
+          "status": "booked"
+        },
+        {
+          "id": "a8",
+          "status": "booked"
+        }
+      ],
+      "name": "Niklas",
+      "email": "niklas@peab.se",
+      "phone": "123456",
+      "totalPrice": 560
+    }
+  ]
 }
