@@ -32,7 +32,7 @@ interface LocationStateNewMovie {
 }
 
 interface BookingDetails {
-    id?: string;
+    id: string;
     movieId: string;
     movieTitle: string;
     seats: Seat[];
