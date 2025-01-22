@@ -5,6 +5,13 @@
   box-sizing: border-box;
 }
 
+/* Normalize/Reset */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
 body {
   background-color: #242333;
   color: #fff;

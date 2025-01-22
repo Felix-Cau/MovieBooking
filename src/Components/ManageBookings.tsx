@@ -154,7 +154,7 @@ function ManageBookings() {
                         onChange={formik.handleChange}
                         className="email-input"
                     />
-                    {formik.touched.email && formik.errors.email ? (
+                    {formik.errors.email ? (
                         <div className='error'>{formik.errors.email}</div>
                     ) : null}
                     <button type='submit'>Show bookings</button>

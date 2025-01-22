@@ -24,37 +24,37 @@ function BookTickets(): JSX.Element {
   const totalPrice = selectedSeats.length * selectedMovie.price;
 
   const formik = useFormik<FormValuesBooking>({
-      initialValues: {
-        name: '',
-        email: '',
-        phone: '',
-      },
-      validate: (values) => {
-        const errors: { name?: string; email?: string; phone?: string; } = {};
+    initialValues: {
+      name: '',
+      email: '',
+      phone: '',
+    },
+    validate: (values) => {
+      const errors: { name?: string; email?: string; phone?: string; } = {};
 
-        if (!values.name) {
-          errors.name = 'Name is requiered';
-        } else if (values.name.trim().length < 2) {
-          errors.name = 'Name must be atleast two characters long';
-        }
+      if (!values.name) {
+        errors.name = 'Name is requiered';
+      } else if (values.name.trim().length < 2) {
+        errors.name = 'Name must be atleast two characters long';
+      }
 
-        if (!values.email) {
-          errors.email = 'Email is required';
-        } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)) {
-          errors.email = 'Not a valid email';
-        }
+      if (!values.email) {
+        errors.email = 'Email is required';
+      } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)) {
+        errors.email = 'Not a valid email';
+      }
 
-        if (!values.phone) {
-          errors.phone = 'Phone number is required';
-        } else if (!/^\d+$/.test(values.phone)) {
-          errors.phone = 'Phone number must contain only digits';
-        } else if (values.phone.length < 5) {
-          errors.phone = 'Phone number must be at least five digits';
-        }
-        return errors;
-      },
-      onSubmit: async (values) => {
-        const updatedSeatingData: SeatingArray = selectedMovie.seatingData.map((row) => 
+      if (!values.phone) {
+        errors.phone = 'Phone number is required';
+      } else if (!/^\d+$/.test(values.phone)) {
+        errors.phone = 'Phone number must contain only digits';
+      } else if (values.phone.length < 5) {
+        errors.phone = 'Phone number must be at least five digits';
+      }
+      return errors;
+    },
+    onSubmit: async (values) => {
+      const updatedSeatingData: SeatingArray = selectedMovie.seatingData.map((row) =>
         row.map((seat) => {
           if (selectedSeats.some((selectedSeat) => String(selectedSeat.id) === String(seat.id))) {
             seat.status = String('booked');
@@ -119,7 +119,7 @@ function BookTickets(): JSX.Element {
             value={formik.values.name}
             onChange={formik.handleChange}
           />
-          {formik.touched.name && formik.errors.name ? (
+          {formik.errors.name ? (
             <div className='error'>{formik.errors.name}</div>
           ) : null}
         </div>
@@ -130,9 +130,8 @@ function BookTickets(): JSX.Element {
             id="email"
             value={formik.values.email}
             onChange={formik.handleChange}
-            formNoValidate
           />
-            {formik.touched.email && formik.errors.email ? (
+          {formik.errors.email ? (
             <div className='error'>{formik.errors.email}</div>
           ) : null}
         </div>
@@ -144,7 +143,7 @@ function BookTickets(): JSX.Element {
             value={formik.values.phone}
             onChange={formik.handleChange}
           />
-          {formik.touched.phone && formik.errors.phone ? (
+          {formik.errors.phone ? (
             <div className='error'>{formik.errors.phone}</div>
           ) : null}
         </div>

@@ -32,25 +32,27 @@ function SeatingData({ movie }: SeatingDataProps): JSX.Element {
 
     return (
         <div>
-            <div className="container">
+            <div className="container text-center">
                 <h2>{movie.title}</h2>
                 <p>Price per ticket: {movie.price} SEK</p>
-                {movie.seatingData.map((row, rowIndex) => (
-                    <div key={rowIndex} className="row">
-                        {row.map((seat) => (
-                            <div
-                                key={seat.id}
-                                className={`seat ${seat.status === 'booked' ? 'occupied' : ''
-                                    } ${selectedSeats.some((s) => s.id === seat.id) ? 'selected' : ''}`}
-                                data-seat-id={seat.id}
-                                data-status={seat.status}
-                                onClick={() => {
-                                    if (seat.status !== 'booked') changeSeatSelection(seat);
-                                }}
-                            ></div>
-                        ))}
-                    </div>
-                ))}
+                <div className='container'>
+                    {movie.seatingData.map((row, rowIndex) => (
+                        <div key={rowIndex} className="row ms-auto">
+                            {row.map((seat) => (
+                                <div
+                                    key={seat.id}
+                                    className={`seat ${seat.status === 'booked' ? 'occupied' : ''
+                                        } ${selectedSeats.some((s) => s.id === seat.id) ? 'selected' : ''}`}
+                                    data-seat-id={seat.id}
+                                    data-status={seat.status}
+                                    onClick={() => {
+                                        if (seat.status !== 'booked') changeSeatSelection(seat);
+                                    }}
+                                ></div>
+                            ))}
+                        </div>
+                    ))}
+                </div>
             </div>
             <p className="text">
                 You have selected <span id="count">{selectedCount}</span> seat(s) for a price of <span id="total">{totalPrice}</span> SEK.

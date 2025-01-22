@@ -27,10 +27,6 @@ interface LocationState {
     selectedMovie: Movie;
 }
 
-interface LocationStateNewMovie {
-    amountOfMovies: number;
-}
-
 interface BookingDetails {
     id: string;
     movieId: string;
@@ -47,7 +43,7 @@ interface PageContextType {
     setActivePage: (page: string) => void;
 }
 
-interface FormValuesAdmin {
+interface FormValues {
     title: string;
     price: number;
 }
@@ -58,13 +54,8 @@ interface FormValuesBooking {
     phone: string;
 }
 
-interface FormValuesCreateMovie {
-    title: string;
-    price: number;
-}
-
 interface FormValuesManageBookings {
     email: string;
 }
 
-export type { Seat, SeatingArray, SeatingDataProps, Movie, MovieContainerProps, LocationState, BookingDetails, PageContextType, LocationStateNewMovie, FormValuesAdmin, FormValuesBooking, FormValuesCreateMovie, FormValuesManageBookings };
+export type { Seat, SeatingArray, SeatingDataProps, Movie, MovieContainerProps, LocationState, BookingDetails, PageContextType, FormValues, FormValuesBooking, FormValuesManageBookings };

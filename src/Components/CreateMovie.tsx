@@ -1,12 +1,11 @@
 import { useState, useEffect } from "react";
 import { getSeatingData, createMovie } from "../Data/api";
-import { useLocation, useNavigate } from "react-router-dom";
-import { Movie, SeatingArray, LocationStateNewMovie, FormValuesCreateMovie } from "../ts/interfaces";
+import { useNavigate } from "react-router-dom";
+import { Movie, SeatingArray, FormValues } from "../ts/interfaces";
 import { useFormik } from "formik";
 
 function CreateMovie(): JSX.Element {
     const [seatingDataNewMovie, setSeatingDataNewMovie] = useState<SeatingArray>([]);
-    const location = useLocation();
     const navigate = useNavigate();
 
     const generateGUID = (): string => {
@@ -29,7 +28,7 @@ function CreateMovie(): JSX.Element {
         fetchSeatingData();
     }, []);
 
-    const formik = useFormik<FormValuesCreateMovie>({
+    const formik = useFormik<FormValues>({
         initialValues: {
             title: '',
             price: 0,
@@ -78,7 +77,7 @@ function CreateMovie(): JSX.Element {
                         value={formik.values.title}
                         onChange={formik.handleChange}
                         required />
-                        {formik.touched.title && formik.errors.title ? (
+                        {formik.errors.title ? (
                             <div className='error'>{formik.errors.title}</div>
                         ) : null}
                     {/* Förlåt för denna br, vi skulle inte bry oss om styligen men det gjorde för ont i ögonen att ha två inputs bredvid varandra så denna snabba lösning fick det bli */}
@@ -91,7 +90,7 @@ function CreateMovie(): JSX.Element {
                         value={formik.values.price}
                         onChange={formik.handleChange}
                         required />
-                        {formik.touched.price && formik.errors.price ? (
+                        {formik.errors.price ? (
                             <div className='error'>{formik.errors.price}</div>
                         ) : null}
                     <div className="button-group">

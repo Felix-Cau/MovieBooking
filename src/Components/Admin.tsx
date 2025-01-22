@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { FormValuesAdmin, Movie } from "../ts/interfaces";
+import { FormValues, Movie } from "../ts/interfaces";
 import { getMovies, updateMovie, deleteMovie } from "../Data/api";
 import { useNavigate } from "react-router-dom";
 import { useFormik } from 'formik';
@@ -55,7 +55,7 @@ function Admin(): JSX.Element {
         }
     }
 
-    const formik = useFormik<FormValuesAdmin>({
+    const formik = useFormik<FormValues>({
         initialValues: {
             title: currentMovie?.title || '',
             price: currentMovie?.price || 0,
