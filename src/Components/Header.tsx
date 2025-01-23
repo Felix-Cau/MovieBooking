@@ -1,5 +1,5 @@
-import { Link } from "react-router-dom";
-import HeaderMenuItem from "./HeaderMenuItem";
+import { Link } from 'react-router-dom';
+import HeaderMenuItem from './HeaderMenuItem';
 
 function Header(): JSX.Element {
   return (

@@ -44,7 +44,7 @@ const routerDetails = createBrowserRouter([
     errorElement: <div>Whops! Something went wrong...</div>,
     children: [
       {
-        path: "/",
+        path: '/',
         element: <Main />,
       },
       {
@@ -52,7 +52,7 @@ const routerDetails = createBrowserRouter([
         element: <CreateMovie />,
       },
       {
-        path: "/managebookings",
+        path: '/managebookings',
         element: <ManageBookings />,
       },
       {
@@ -60,7 +60,7 @@ const routerDetails = createBrowserRouter([
         element: <BookTickets />
       },
       {
-        path: "/admin",
+        path: '/admin',
         element: <Admin />,
       },
     ],

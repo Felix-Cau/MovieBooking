@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react";
-import { FormValues, Movie } from "../ts/interfaces";
-import { getMovies, updateMovie, deleteMovie } from "../Data/api";
-import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from 'react';
+import { FormValues, Movie } from '../ts/interfaces';
+import { getMovies, updateMovie, deleteMovie } from '../Data/api';
+import { useNavigate } from 'react-router-dom';
 import { useFormik } from 'formik';
 
 function Admin(): JSX.Element {
@@ -17,10 +17,10 @@ function Admin(): JSX.Element {
                 if (Array.isArray(moviesData)) {
                     setMovies(moviesData);
                 } else {
-                    console.log("Failed to load movies as admin.");
+                    console.log('Failed to load movies as admin.');
                 }
             } catch (error) {
-                console.error("Error fetching movies:", error);
+                console.error('Error fetching movies:', error);
             }
         };
         fetchMovies();
@@ -48,10 +48,10 @@ function Admin(): JSX.Element {
             if (deleteStatus) {
                 setMovies((currentMovies) => currentMovies.filter((movie) => movie.id !== movieId));
             } else {
-                console.log("Failed to delete movie.");
+                console.log('Failed to delete movie.');
             }
         } catch (error) {
-            console.error("Error deleding movie:", error);
+            console.error('Error deleding movie:', error);
         }
     }
 

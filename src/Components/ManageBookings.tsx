@@ -1,8 +1,8 @@
-import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import { BookingDetails, FormValuesManageBookings, Movie, SeatingArray } from "../ts/interfaces";
-import { getAllBookings, getMovies, deleteBooking, updateMovie } from "../Data/api";
-import { useFormik } from "formik";
+import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { BookingDetails, FormValuesManageBookings, Movie, SeatingArray } from '../ts/interfaces';
+import { getAllBookings, getMovies, deleteBooking, updateMovie } from '../Data/api';
+import { useFormik } from 'formik';
 
 function ManageBookings() {
     const [allBookings, setAllBookings] = useState<BookingDetails[]>([]);
@@ -19,10 +19,10 @@ function ManageBookings() {
                 if (Array.isArray(bookingData)) {
                     setAllBookings(bookingData);
                 } else {
-                    console.log("Failed to load movies as admin.");
+                    console.log('Failed to load movies as admin.');
                 }
             } catch (error) {
-                console.error("Error fetching movies:", error);
+                console.error('Error fetching movies:', error);
             }
 
         };
@@ -36,10 +36,10 @@ function ManageBookings() {
                 if (Array.isArray(moviesData)) {
                     setAllMovies(moviesData);
                 } else {
-                    console.log("Failed to load movies as admin.");
+                    console.log('Failed to load movies as admin.');
                 }
             } catch (error) {
-                console.error("Error fetching movies:", error);
+                console.error('Error fetching movies:', error);
             }
         };
         fetchMovies();
@@ -53,7 +53,7 @@ function ManageBookings() {
 
         const bookingToDelete = allBookings.find((booking) => booking.id === bookingId);
         if (!bookingToDelete) {
-            console.error("Booking not found");
+            console.error('Booking not found');
             return;
         }
 
@@ -104,10 +104,10 @@ function ManageBookings() {
                     return updatedFilteredBookings;
                 })
             } else {
-                console.log("Failed to delete movie.");
+                console.log('Failed to delete movie.');
             }
         } catch (error) {
-            console.error("Error deleding movie:", error);
+            console.error('Error deleding movie:', error);
         }
     }
 
@@ -191,7 +191,7 @@ function ManageBookings() {
                             ))}
                         </tbody>
                     </table>
-                    <button className="cancel-button" onClick={() => navigate("/")}>Cancel</button>
+                    <button className="cancel-button" onClick={() => navigate('/')}>Cancel</button>
                 </div>
             )}
         </div>

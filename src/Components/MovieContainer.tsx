@@ -1,4 +1,4 @@
-import { MovieContainerProps } from "../ts/interfaces";
+import { MovieContainerProps } from '../ts/interfaces';
 
 function MovieContainer({ movies, selectedMovie, onMovieChange }: MovieContainerProps) {
     
