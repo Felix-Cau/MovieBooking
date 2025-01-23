@@ -1,8 +1,8 @@
-import { useState, useEffect } from "react";
-import { getSeatingData, createMovie } from "../Data/api";
-import { useNavigate } from "react-router-dom";
-import { Movie, SeatingArray, FormValues } from "../ts/interfaces";
-import { useFormik } from "formik";
+import { useState, useEffect } from 'react';
+import { getSeatingData, createMovie } from '../Data/api';
+import { useNavigate } from 'react-router-dom';
+import { Movie, SeatingArray, FormValues } from '../ts/interfaces';
+import { useFormik } from 'formik';
 
 function CreateMovie(): JSX.Element {
     const [seatingDataNewMovie, setSeatingDataNewMovie] = useState<SeatingArray>([]);
@@ -19,10 +19,10 @@ function CreateMovie(): JSX.Element {
                 if (Array.isArray(seatingArray)) {
                     setSeatingDataNewMovie(seatingArray);
                 } else {
-                    console.log("Failed to load seating data in create movie.");
+                    console.log('Failed to load seating data in create movie.');
                 }
             } catch (error) {
-                console.error("Error fetching seating data:", error);
+                console.error('Error fetching seating data:', error);
             }
         };
         fetchSeatingData();
@@ -56,7 +56,7 @@ function CreateMovie(): JSX.Element {
                 const response = await createMovie(newMovie);
 
                 if (response) {
-                    navigate("/admin");
+                    navigate('/admin');
                 }
             } catch (error) {
                 console.error(error);
@@ -95,7 +95,7 @@ function CreateMovie(): JSX.Element {
                         ) : null}
                     <div className="button-group">
                         <button type="submit">Create</button>
-                        <button className="cancel-button" onClick={() => navigate("/admin")}>
+                        <button className="cancel-button" onClick={() => navigate('/admin')}>
                             Cancel
                         </button>
                         <p>

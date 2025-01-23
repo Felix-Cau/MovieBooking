@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { BookingDetails, Movie, SeatingArray } from '../ts/interfaces';
 
-const URL: string = "http://localhost:3000";
+const URL: string = 'http://localhost:3000';
 
 
 async function getMovies() {

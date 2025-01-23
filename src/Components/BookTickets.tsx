@@ -1,7 +1,7 @@
-import { useLocation, useNavigate } from "react-router-dom";
-import { createBooking, updateMovie } from "../Data/api";
-import { Movie, LocationState, SeatingArray, FormValuesBooking } from "../ts/interfaces";
-import { useFormik } from "formik";
+import { useLocation, useNavigate } from 'react-router-dom';
+import { createBooking, updateMovie } from '../Data/api';
+import { Movie, LocationState, SeatingArray, FormValuesBooking } from '../ts/interfaces';
+import { useFormik } from 'formik';
 
 function BookTickets(): JSX.Element {
   const location = useLocation();
@@ -82,9 +82,9 @@ function BookTickets(): JSX.Element {
 
         const bookingStatus = await createBooking(bookingDetails);
         if (bookingStatus) {
-          navigate("/");
+          navigate('/');
         } else {
-          console.log("Booking failed. Pleae try again.");
+          console.log('Booking failed. Pleae try again.');
           return;
         }
       } catch (error) {
@@ -143,7 +143,7 @@ function BookTickets(): JSX.Element {
             <div className='error'>{formik.errors.phone}</div>
           ) : null}
         </div>
-        <button className="cancel-button" onClick={() => navigate("/")}>
+        <button className="cancel-button" onClick={() => navigate('/')}>
           Cancel
         </button>
         <button type='submit' className="confirm-button">

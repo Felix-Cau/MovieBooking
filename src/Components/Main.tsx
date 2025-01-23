@@ -1,14 +1,14 @@
-import { useEffect, useState } from "react";
-import MovieContainer from "./MovieContainer";
-import SeatingData from "./SeatingData";
-import { Movie } from "../ts/interfaces";
-import { getMovies } from "../Data/api";
+import { useEffect, useState } from 'react';
+import MovieContainer from './MovieContainer';
+import SeatingData from './SeatingData';
+import { Movie } from '../ts/interfaces';
+import { getMovies } from '../Data/api';
 
 function Main() {
     const [movies, setMovies] = useState<Movie[]>([]);
     const [selectedMovie, setSelectedMovie] = useState<Movie>({
-        id: "",
-        title: "",
+        id: '',
+        title: '',
         price: 0,
         seatingData: [],
     });
@@ -21,10 +21,10 @@ function Main() {
                     setMovies(moviesData);
                     setSelectedMovie(moviesData[0]);
                 } else {
-                    console.error("Failed to load movies or no movies available.");
+                    console.error('Failed to load movies or no movies available.');
                 }
             } catch (error) {
-                console.error("Error fetching movies:", error);
+                console.error('Error fetching movies:', error);
             }
         };
         fetchMovies();

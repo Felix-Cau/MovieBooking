@@ -1,6 +1,6 @@
-import { useContext } from "react";
-import { Link } from "react-router-dom";
-import { PageContext } from "../Data/PageContext";
+import { useContext } from 'react';
+import { Link } from 'react-router-dom';
+import { PageContext } from '../Data/PageContext';
 
 interface HeaderMenuItemProps {
   link: string,
