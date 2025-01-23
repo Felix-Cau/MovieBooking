@@ -17,10 +17,6 @@ function BookTickets(): JSX.Element {
       selectedMovie: undefined,
     };
 
-  if (!selectedMovie || !selectedSeats) {
-    return <div>No booking information available.</div>;
-  }
-
   const totalPrice = selectedSeats.length * selectedMovie.price;
 
   const formik = useFormik<FormValuesBooking>({
