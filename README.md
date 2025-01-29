@@ -1,50 +1,27 @@
-# React + TypeScript + Vite
+# React & TypeScript Web Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Description
 
-Currently, two official plugins are available:
+This school assignment is a web application built with React and TypeScript, created with Vite. To simulate a real database, JSON Server is used as a backend.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Technologies and Frameworks
 
-## Expanding the ESLint configuration
+The project utilizes the following frameworks and libraries:
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+Axios – I chose Axios instead of Fetch because it is more intuitive to work with and does not require the same type of code. I also find that the code becomes more readable and, therefore, more maintainable.
 
-- Configure the top-level `parserOptions` property like this:
+Formik – Used to facilitate user input validation efficiently through a trusted framework.
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+ESLint – Ensures that the code is of high quality, consistent, and easy to read and maintain.
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+Vite – Simplifies the initialization and creation of the web application.
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+## Purpose
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+I chose to use TypeScript instead of JavaScript to challenge myself and gain experience with the "type-safe" version. This turned out to be a greater challenge than expected, as unexpected issues arose that required a lot of debugging. At times, I felt that it would have been easier to just use JavaScript. However, encountering errors provides valuable lessons and learning experiences.
+
+Beyond the requirements of the assignment, I also added extra functionality, as it felt incomplete otherwise. I implemented a feature in the web app that allows users to view and delete their bookings, as I personally felt it was strange not to include it.
+
+## Potential Improvements
+
+Currently, the business logic is located in the same files as the frontend components, which is suboptimal. This was not a requirement for the assignment, but it is something that should ideally have been addressed.
