@@ -2,7 +2,7 @@
 
 ## Description
 
-This school assignment is a web application built with React and TypeScript, created with Vite. To simulate a real database, JSON Server is used as a backend.
+This school assignment is a web application built with React and TypeScript, created with Vite. To simulate a real database, JSON Server is used as a backend. No demands on the styling was made.
 
 ## Technologies and Frameworks
 
@@ -15,6 +15,8 @@ Formik – Used to facilitate user input validation efficiently through a truste
 ESLint – Ensures that the code is of high quality, consistent, and easy to read and maintain.
 
 Vite – Simplifies the initialization and creation of the web application.
+
+Bootstrap - I choose to use Bootstrap to get a clean looking navbar even though it wasn't requiered for the assignment.
 
 ## Purpose
 
