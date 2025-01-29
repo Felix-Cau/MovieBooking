@@ -16,7 +16,7 @@ ESLint – Ensures that the code is of high quality, consistent, and easy to rea
 
 Vite – Simplifies the initialization and creation of the web application.
 
-Bootstrap - I choose to use Bootstrap to get a clean looking navbar even though it wasn't requiered for the assignment.
+Bootstrap - I chose to use Bootstrap to get a clean looking navbar even though it wasn't requiered for the assignment.
 
 ## Purpose
 
