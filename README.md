@@ -10,7 +10,7 @@ The project utilizes the following frameworks and libraries:
 
 Axios – I chose Axios instead of Fetch because it is more intuitive to work with and does not require the same type of code. I also find that the code becomes more readable and, therefore, more maintainable.
 
-Formik – Used to facilitate user input validation efficiently through a trusted framework instead of having to create everything myself.
+Formik – Used for user input validation efficiently through a trusted framework instead of having to create everything myself.
 
 ESLint – Ensures that the code is of high quality, consistent, and easy to read and maintain.
 
@@ -18,7 +18,7 @@ Vite – Simplifies the initialization and creation of the web application.
 
 Bootstrap - I chose to use Bootstrap to get a clean looking navbar even though it wasn't requiered for the assignment.
 
-React: For building a interactive and dynamic user experience via components. useState, useEffect and useNavigate are also used throught the application to make everything work smoothly.
+React: For building a interactive and dynamic user experience via components. useState, useEffect and useNavigate are also used throughout the application to make everything work smoothly.
 
 ## Purpose
 
